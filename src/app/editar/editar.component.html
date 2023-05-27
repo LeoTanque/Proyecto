@@ -1,0 +1,20 @@
+<div class="row">
+    <h2 style="text-align: center;">Editar Tarea</h2>
+  <div class="col-sm-3 offset-md-4">
+    <div class="card card-body">
+  <form [formGroup]="tareaForm" (ngSubmit)="editarTarea()">
+    <div class="form-group">
+      <input type="text" formControlName="titulo" placeholder="Ingrese el título" [(ngModel)]="tarea.titulo">
+      
+    </div>
+    <div class="form-group">
+      
+      <textarea formControlName="descripcion" placeholder="Ingrese la descripción" [(ngModel)]="tarea.descripcion" rows="6"></textarea>
+     
+      
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="tareaForm.invalid">Editar</button>
+  </form>
+  </div>
+  </div>
+  </div>

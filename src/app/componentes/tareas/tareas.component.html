@@ -1,0 +1,25 @@
+
+<div class="row">
+  <h2 style="text-align: center;">Agregar Tarea</h2>
+<div class="col-sm-3 offset-md-4">
+  <div class="card card-body">
+<form [formGroup]="tareaForm" (ngSubmit)="agregarTarea()">
+  <div class="form-group">
+    <input type="text" formControlName="titulo" placeholder="Ingrese el título">
+    <!--div *ngIf="tareaForm.controls.titulo.invalid && tareaForm.controls.titulo.touched">
+      El título es requerido.
+    </div-->
+  </div>
+  <div class="form-group">
+    <!--input type="text" formControlName="descripcion" placeholder="Ingrese la descripcion"-->
+    <textarea formControlName="descripcion" placeholder="Ingrese la descripción" rows="6"></textarea>
+    <!--<div *ngIf="tareaForm.controls.descripcion.invalid && tareaForm.controls.descripcion.touched">
+      La descripción es requerida.
+    </div-->
+    
+  </div>
+  <button class="btn btn-primary" type="submit" [disabled]="tareaForm.invalid">Agregar</button>
+</form>
+</div>
+</div>
+</div>
