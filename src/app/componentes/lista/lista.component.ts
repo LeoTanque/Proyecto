@@ -22,11 +22,20 @@ export class ListaComponent implements OnInit {
 
   }
 
-  eliminarTarea(id: string) {
+  /*eliminarTarea(id: string) {
     this.tareasService.eliminarTarea(id).subscribe(res=>{
       (console.log(res))
       this.tareas=this.tareas.filter(tarea=>tarea.id!==id);
     });
+  }*/
+  eliminarTarea(id: string) {
+    const confirmarEliminacion = confirm('¿Desea eliminar esta tarea?');
+    if (confirmarEliminacion) {
+      this.tareasService.eliminarTarea(id).subscribe(res => {
+        console.log(res);
+        this.tareas = this.tareas.filter(tarea => tarea.id !== id);
+      });
+    }
   }
   
 

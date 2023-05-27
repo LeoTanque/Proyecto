@@ -14,6 +14,9 @@ export class EditarComponent {
     titulo:'',
     descripcion:''
   }
+
+  exito: boolean = false;
+  error: boolean = false;
   constructor(private formBuilder: FormBuilder, private tareasService: TareasService, private routes:Router, private active:ActivatedRoute) {
     this.tareaForm = this.formBuilder.group({
       titulo: ['', Validators.required],
@@ -39,13 +42,21 @@ export class EditarComponent {
     this.tareasService.editarTarea(this.tarea).subscribe(
       res => {
         console.log(res);
-       this.routes.navigate(['lista'])
+        this.exito = true;
+        alert('Se ha editado la tarea correctamente')
+        this.error = false;
+       this.routes.navigate(['lista']);
       },
+      
       error => {
         console.error(error);
+        this.exito = false;
+        alert('Error: No se pudo editar la tarea')
+        this.error = true;
         
       }
     );
+    
   }
   }
 

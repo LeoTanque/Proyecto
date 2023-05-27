@@ -15,6 +15,11 @@
     </div>
     <button class="btn btn-primary" type="submit" [disabled]="tareaForm.invalid">Editar</button>
   </form>
+  <div *ngIf="exito" class="alert alert-success">Se ha editado la tarea correctamente.</div>
+      <!-- Mensaje de error -->
+      <div *ngIf="error" class="alert alert-danger">Error: No se pudo editar la tarea.</div>
+      
+    </div>
   </div>
   </div>
-  </div>
+
